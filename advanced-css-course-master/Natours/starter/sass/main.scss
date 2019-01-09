@@ -1,0 +1,17 @@
+@import "abstracts/functions";
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+// this is actually looking at the _base.scss file but we don't need
+// to include the extension or the underscore
+@import "base/animations";
+@import "base/base";
+@import "base/typography";
+@import "base/utilities";
+
+@import "components/button";
+
+@import "layout/header";
+@import "layout/grid";
+
+@import "pages/home";

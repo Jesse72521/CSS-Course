@@ -1,0 +1,51 @@
+.header {
+    /* this says it should be 95% of the viewport height. */
+    height: 95vh;
+    /* adding in a gradient, we want our base image to be
+    listed last, and then our gradient image first so it is
+    on top of the other image. */
+    background-image: linear-gradient(
+        to right bottom,
+        /* use the color picker to slide the bar and
+        make these colors opaque */
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg);
+    /* cover tries to fit the entire element in the width of the viewport */
+    background-size: cover;
+    /* top of image stays at top of container */
+    background-position: top;
+    position: relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+
+    //the '&' copies the classes so far (so in this case it copies '.header')
+    &__logo-box {
+    /* absolute within the parent element.  parent element should
+    have relative positioning */
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+
+        &:hover .logo{
+            animation: moveInRight .6s ease-in;
+        }
+    }
+
+    &__logo{
+        height: 3.5rem;
+    }
+
+    &__text-box{
+        position: absolute;
+        /* the two below are in relation to the parent element. */
+        top: 40%;
+        left: 50%;
+        /* without the line of code below this, it will position the upper left corner of
+        our div at the middle mark, which means our element will be lower and more right
+        then what we want.  the transform: translate takes care of that for us. This
+        is in relation to the element itsself.*/
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

@@ -1,0 +1,37 @@
+/*This is the unversal selector, it makes it so every
+browser has a set a baseline styles to run when they load 
+because not every browser is the same.  In this case we are setting
+these specific elements*/
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+
+}
+
+html {
+    /* we initially did 10px here.  We don't want to do px
+    because a user can custom define the root font size for his browser,
+    if you do the 10 px size it will bully his setting and force your
+    font size onto his browser. */
+    /* Default font size is 16, so if we want 10 we do 10/16 and input that percentage */
+    // essentially defines what 1rem is.
+    font-size: 62.5%; 
+}
+
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    /* line-height will be 1.7 times bigger than normal */
+    line-height: 1.7;
+    color: $color-grey-dark;
+    /* padding: rem default is in the html tag, 10 px.  so 3rem is 30 px. */
+    padding: 3rem;
+    /* changes box model so borders and padding 
+    are no longer added to total width/height for
+    an element*/
+    box-sizing: border-box; 
+}

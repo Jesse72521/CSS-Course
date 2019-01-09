@@ -1,0 +1,81 @@
+.btn {
+    &:link,
+    &:visited {
+        text-transform: uppercase;
+        text-decoration: none; /*gets rid of the underline*/
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s; /* this transition has to be in the base state for the transitions below*/
+        position: relative;
+        font-size: $default-font-size;
+    }
+    
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            opacity: 0;
+        }
+    }
+    
+    &:active {
+        transform: translateY(-1px);
+        box-shadow: 0 .5rem 1rem rgba($color-black, 0.2);
+    }
+    
+    &--white{
+        background-color: $color-white;
+        color: $color-grey-dark;
+        &::after {
+            background-color: $color-white;
+        }
+    }
+    
+    /* the ::after are "pesudo" elements.  we used these for the goofy animation. */
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 100%;
+        width: 100%;
+        border-radius: 10rem;
+        /* will look for the nearest relative parent.  we added position:relative to the btn:link area for this. */
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* have to set zindex or else this will sit on top of the button and
+        completely cover it.  We want our button on top since they are in the
+        same position. */
+        z-index: -1;
+        transition: all .4s;
+    }
+    
+    &--animated {
+        /* name -- duration -- timing-function -- delay */
+        animation: moveInBottom .5s ease-out .75s;
+        /* makes it so our button isn't visible to start... not sure how it does this. */
+        animation-fill-mode: backwards;
+    }
+}
+
+.btn-text {
+    &:link,
+    &:visited {
+        font-size: $default-font-size;
+        color: $color-primary;
+        display: inline-block;
+        text-decoration: none;
+        border-bottom: 1px solid $color-primary;
+        padding: 3px;
+    }
+
+    &.hover {
+
+    }
+
+    &:active {
+
+    }
+}
